@@ -8,6 +8,7 @@ class DayStyle {
   DayStyle.raw({
     @required this.dayTextStyle,
     @required this.extendedDayTextStyle,
+    this.shadeCallback,
     @required this.todayColor,
     @required this.selectedColor,
     @required this.showTicks,
@@ -33,6 +34,7 @@ class DayStyle {
   factory DayStyle({
     TextStyle dayTextStyle,
     TextStyle extendedDayTextStyle,
+    Function shadeCallback,
     Color todayColor,
     Color selectedColor,
     bool showTicks = true,
@@ -47,6 +49,7 @@ class DayStyle {
       dayTextStyle: dayTextStyle ?? new TextStyle(),
       extendedDayTextStyle:
           extendedDayTextStyle ?? new TextStyle(fontWeight: FontWeight.w300),
+      shadeCallback: shadeCallback,
       todayColor: todayColor ?? Colors.blue[200],
       selectedColor: selectedColor ?? Colors.purple[200],
       showTicks: showTicks,
@@ -64,6 +67,9 @@ class DayStyle {
   /// [TextStyle] of a day inside a [SmallCalendar],
   /// that is not a part of the month that a smallCalendar represents.
   final TextStyle extendedDayTextStyle;
+
+  /// Callback for shading [CalendarDay].
+  final Function shadeCallback;
 
   /// [Color] of indication that specific day is today.
   final Color todayColor;
@@ -92,6 +98,7 @@ class DayStyle {
   DayStyle copyWith({
     TextStyle dayTextStyle,
     TextStyle extendedDayTextStyle,
+    Function shadeCallback,
     Color todayColor,
     Color selectedColor,
     bool showTicks,
@@ -104,6 +111,7 @@ class DayStyle {
     return new DayStyle.raw(
       dayTextStyle: dayTextStyle ?? this.dayTextStyle,
       extendedDayTextStyle: extendedDayTextStyle ?? this.extendedDayTextStyle,
+      shadeCallback: shadeCallback ?? this.shadeCallback,
       todayColor: todayColor ?? this.todayColor,
       selectedColor: selectedColor ?? this.selectedColor,
       showTicks: showTicks ?? this.showTicks,

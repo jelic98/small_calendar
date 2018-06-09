@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
-
-import 'package:small_calendar/src/data/day_data.dart';
-
+import 'package:small_calendar/src/data/all.dart';
 import 'style/day_style.dart';
 import 'callbacks.dart';
 
@@ -64,7 +62,9 @@ class CalendarDay extends StatelessWidget {
     return new Container(
       margin: style.margin,
       child: new Material(
-        color: Colors.transparent,
+        color: (style.shadeCallback != null)
+            ? style.shadeCallback(dayData.day.toDateTime())
+            : Colors.transparent,
         child: new InkWell(
           onTap: onTap,
           child: new Column(

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
-
 import 'package:small_calendar/src/data/all.dart';
 
 typedef DayData OnGetDayData(Day day);

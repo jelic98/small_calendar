@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 
+typedef Color ShadeCallback(DateTime day);
+
 /// Style of a day inside a [SmallCalendar].
 @immutable
 class DayStyle {
@@ -77,7 +79,7 @@ class DayStyle {
   final TextStyle extendedDayTextStyle;
 
   /// Callback for shading [CalendarDay].
-  final Function shadeCallback;
+  final ShadeCallback shadeCallback;
 
   /// [Color] of indication that specific day is today.
   final Color todayColor;

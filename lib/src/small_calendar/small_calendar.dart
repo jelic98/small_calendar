@@ -16,7 +16,6 @@ class SmallCalendar extends StatelessWidget {
   SmallCalendar({
     @required this.month,
     this.onDayTap,
-    this.dayColorCallback,
   });
 
   /// Month that is represented in this [SmallCalendar].
@@ -24,9 +23,6 @@ class SmallCalendar extends StatelessWidget {
 
   /// Called whenever user taps(clicks) on a day.
   final DateCallback onDayTap;
-
-  /// /// Called whenever day needs information about it's color.
-  final Function dayColorCallback;
 
   List<int> _generateWeekdayIndicationDays(BuildContext context) {
     return generateWeekdays(
